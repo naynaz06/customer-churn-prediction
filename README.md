@@ -79,3 +79,8 @@ Ensure the saved model, scaler, and feature-column files are present in the proj
 - Handling class imbalance using class weights
 - Hyperparameter tuning
 - Model serialization and deployment with Streamlit
+
+## Application Preview
+
+![Customer Churn Prediction Dashboard](streamlit_app.png)
+
