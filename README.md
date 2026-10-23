@@ -1,86 +1,56 @@
-# Customer Churn Prediction
+# Smart Customer Support Ticket Intelligence System
 
 ## Project Overview
-This project predicts whether a telecom customer is likely to leave the company (churn) using machine learning classification algorithms. It also includes an interactive Streamlit web application that allows users to enter customer details and obtain a churn prediction.
+This project uses Natural Language Processing (NLP) and Machine Learning to automatically classify customer support tickets into predefined categories. It helps organize customer queries and can support faster ticket routing.
 
-## Objectives
-- Analyze customer data to identify churn patterns.
-- Perform data cleaning, preprocessing, and exploratory data analysis (EDA).
-- Train and compare multiple machine learning classification models.
-- Improve model performance using hyperparameter tuning.
-- Deploy the final model through a Streamlit web application.
-
-## Dataset
-The project uses the Telco Customer Churn dataset, which contains customer demographics, account information, subscribed services, payment methods, and churn status.
-
-- Dataset size: 7,043 customer records
-- Target variable: `Churn`
-- Target classes: `Yes` (churn) and `No` (no churn)
+## Features
+- Customer ticket text preprocessing
+- Bag of Words (BoW) and TF-IDF feature extraction
+- Comparison of Naive Bayes, Logistic Regression, and Linear SVM models
+- Automated ticket category prediction
+- Interactive Streamlit web application
 
 ## Technologies Used
 - Python
-- Pandas and NumPy
-- Matplotlib and Seaborn
+- Pandas
 - Scikit-learn
-- Joblib
+- NLTK
+- TF-IDF
+- Linear Support Vector Classifier (LinearSVC)
 - Streamlit
+- Joblib
 - Jupyter Notebook
 
-## Machine Learning Workflow
-1. Data cleaning and missing-value handling
-2. Exploratory data analysis and visualization
-3. Categorical encoding and feature engineering
-4. Train-test split and feature scaling
-5. Model training and evaluation
-6. Hyperparameter tuning using GridSearchCV
-7. Feature importance analysis
-8. Model saving and Streamlit deployment
 
-## Models Evaluated
-- Logistic Regression
-- K-Nearest Neighbors (KNN)
-- Random Forest Classifier
-- Support Vector Machine (SVM)
 
-## Results
-The tuned SVM model was selected for deployment because it achieved the highest churn recall among the evaluated models.
+## Dataset
+The project uses the Banking77 customer support dataset, containing 77 categories of banking-related customer queries.
 
-- Accuracy: 74.59%
-- Churn Precision: 51.42%
-- Churn Recall: 77.54%
-- Churn F1-score: 61.83%
+- Training samples: 10,003
+- Test samples: 3,080
+- Number of categories: 77
 
-The model prioritizes identifying customers who may churn, although this results in some customers being incorrectly flagged as potential churners.
+## Model
+LinearSVC with TF-IDF feature extraction was selected as the final model.
 
-## Streamlit Application
-The application accepts customer information and predicts whether the customer is likely to churn or stay.
+The model and TF-IDF vectorizer are saved in the `models/` directory for use in the Streamlit application.
 
-To run the application locally:
+## Run the Application
 
 1. Clone or download this repository.
-2. Install the required dependencies:
-   `pip install -r requirements.txt`
-3. Run:
-   `streamlit run app.py`
+2. Install the required dependencies.
+3. Open a terminal in the project directory.
+4.pip install pandas scikit-learn nltk streamlit joblib
+5. Run(in Terminal):
 
-Ensure the saved model, scaler, and feature-column files are present in the project directory.
 
-## Project Structure
-- `customer_churn.ipynb` — Data analysis, model training, evaluation, and feature importance
-- `app.py` — Streamlit application
-- `final_svm_model.pkl` — Saved SVM model
-- `scaler.pkl` — Saved feature scaler
-- `feature_columns.pkl` — Training feature names and order
-- `requirements.txt` — Python dependencies
-
-## Key Learning Outcomes
-- Data preprocessing and feature engineering
-- Classification model evaluation
-- Handling class imbalance using class weights
-- Hyperparameter tuning
-- Model serialization and deployment with Streamlit
+python -m streamlit run app.py
 
 ## Application Preview
+![Smart Customer Support Ticket Classifier](Smart%20Customer%20Support%20Ticket%20Classifier.png)
 
-![Customer Churn Prediction Dashboard](streamlit_app.png)
 
+## Future Improvements
+- Improve classification accuracy for confusing ticket categories.
+- Explore additional NLP and machine learning techniques.
+- Expand the application with more customer support features.
